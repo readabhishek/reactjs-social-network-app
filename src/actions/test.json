@@ -1,0 +1,160 @@
+{
+  "message": "List of posts",
+  "success": true,
+  "data": {
+    "next": {
+      "page": 2,
+      "limit": 5
+    },
+    "posts": [
+      {
+        "comments": [],
+        "likes": [],
+        "_id": "5fcf70b86f2c9a4fb532f3c0",
+        "content": "fghjfghjfthfgh",
+        "user": {
+          "_id": "5f7f0ac66f2c9a4fb532f08e",
+          "email": "hul@gmail.com",
+          "name": "hulk89"
+        },
+        "createdAt": "2020-12-08T12:25:28.881Z",
+        "updatedAt": "2020-12-08T12:25:28.881Z",
+        "__v": 0
+      },
+      {
+        "comments": [],
+        "likes": [],
+        "_id": "5fcf70a46f2c9a4fb532f3bd",
+        "content": "tyfty",
+        "user": {
+          "_id": "5f7f0ac66f2c9a4fb532f08e",
+          "email": "hul@gmail.com",
+          "name": "hulk89"
+        },
+        "createdAt": "2020-12-08T12:25:08.944Z",
+        "updatedAt": "2020-12-08T12:25:08.944Z",
+        "__v": 0
+      },
+      {
+        "comments": [
+          {
+            "likes": [],
+            "_id": "5fcf70a06f2c9a4fb532f3ba",
+            "content": "cvghfgh",
+            "post": "5fcf34f36f2c9a4fb532f39b",
+            "user": {
+              "_id": "5f7f0ac66f2c9a4fb532f08e",
+              "email": "hul@gmail.com",
+              "name": "hulk89"
+            },
+            "createdAt": "2020-12-08T12:25:04.763Z",
+            "updatedAt": "2020-12-08T12:25:04.763Z",
+            "__v": 0
+          },
+          {
+            "likes": [],
+            "_id": "5fcf70a26f2c9a4fb532f3bc",
+            "content": "ghkjhk",
+            "post": "5fcf34f36f2c9a4fb532f39b",
+            "user": {
+              "_id": "5f7f0ac66f2c9a4fb532f08e",
+              "email": "hul@gmail.com",
+              "name": "hulk89"
+            },
+            "createdAt": "2020-12-08T12:25:06.340Z",
+            "updatedAt": "2020-12-08T12:25:06.340Z",
+            "__v": 0
+          },
+          {
+            "likes": [],
+            "_id": "5fcf70b06f2c9a4fb532f3be",
+            "content": "yuytu",
+            "post": "5fcf34f36f2c9a4fb532f39b",
+            "user": {
+              "_id": "5f7f0ac66f2c9a4fb532f08e",
+              "email": "hul@gmail.com",
+              "name": "hulk89"
+            },
+            "createdAt": "2020-12-08T12:25:20.475Z",
+            "updatedAt": "2020-12-08T12:25:20.475Z",
+            "__v": 0
+          },
+          {
+            "likes": [],
+            "_id": "5fcf70b46f2c9a4fb532f3bf",
+            "content": "jgujugjk",
+            "post": "5fcf34f36f2c9a4fb532f39b",
+            "user": {
+              "_id": "5f7f0ac66f2c9a4fb532f08e",
+              "email": "hul@gmail.com",
+              "name": "hulk89"
+            },
+            "createdAt": "2020-12-08T12:25:24.714Z",
+            "updatedAt": "2020-12-08T12:25:24.714Z",
+            "__v": 0
+          }
+        ],
+        "likes": [
+          "5fcf3c4a6f2c9a4fb532f3b8"
+        ],
+        "_id": "5fcf34f36f2c9a4fb532f39b",
+        "content": "dyr6tuyr",
+        "user": {
+          "_id": "5f7f0ac66f2c9a4fb532f08e",
+          "email": "hul@gmail.com",
+          "name": "hulk89"
+        },
+        "createdAt": "2020-12-08T08:10:27.432Z",
+        "updatedAt": "2020-12-08T12:25:24.904Z",
+        "__v": 19
+      },
+      {
+        "comments": [],
+        "likes": [
+          "5fcf3abd6f2c9a4fb532f3aa"
+        ],
+        "_id": "5fcf083d6f2c9a4fb532f396",
+        "content": "k.j\n",
+        "user": {
+          "_id": "5fcf08146f2c9a4fb532f395",
+          "email": "12349",
+          "name": "RAj"
+        },
+        "createdAt": "2020-12-08T04:59:41.558Z",
+        "updatedAt": "2020-12-08T08:35:09.388Z",
+        "__v": 1
+      },
+      {
+        "comments": [
+          {
+            "likes": [],
+            "_id": "5fd1ddc66f2c9a4fb532f3c7",
+            "content": "mk",
+            "post": "5fca003b6f2c9a4fb532f374",
+            "user": {
+              "_id": "5fd1ddb36f2c9a4fb532f3c6",
+              "email": "5u6798097",
+              "name": "njkjjjjjjj"
+            },
+            "createdAt": "2020-12-10T08:35:18.136Z",
+            "updatedAt": "2020-12-10T08:35:18.136Z",
+            "__v": 0
+          }
+        ],
+        "likes": [
+          "5fcf3ac66f2c9a4fb532f3ac"
+        ],
+        "_id": "5fca003b6f2c9a4fb532f374",
+        "content": "required",
+        "user": {
+          "_id": "5fc9ffdf6f2c9a4fb532f372",
+          "email": "123455674546",
+          "name": "RAj"
+        },
+        "createdAt": "2020-12-04T09:24:11.854Z",
+        "updatedAt": "2020-12-10T08:35:18.332Z",
+        "__v": 4
+      }
+    ]
+  }
+}
