@@ -1,29 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Link} from 'react-router-dom';
-import {Route} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 
 import {fetchPosts} from '../actions/posts'
 import NavBar from "./NavBar";
-import PostsList from "./PostsList";
+import Home from "./Home";
+import Page404 from "./Page404";
+import Login from './Login';
 
 import '../index.css';
 
 /* Creating some dummy components */
-const Login=() => {
-    return (<div>Login</div>);
-}
-
-const SignUp=() => {
+const SignUp = () => {
     return (<div>SignUp</div>);
 }
-
-const Home=() => {
-    return (<div>Home</div>);
-}
-
-
 
 
 class App extends React.Component {
@@ -41,7 +32,8 @@ class App extends React.Component {
 
         const {posts} = this.props;
         return (
-            <Router>           { /* Add this <Router> component so that React understands that this is root route */ }
+
+            <Router>           { /* Add this <Router> component so that React understands that this is root route */}
                 <div>
                     <NavBar/>
                     {/*<PostsList posts={posts}/>*/}
@@ -57,12 +49,19 @@ class App extends React.Component {
                         </li>
                     </ul>
 
-
-                    <Route exact path="/" component={Home} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/signup" component={SignUp} />
+                    {/* Note: Here we are using render attribute and passing <Home> component with props. This is only to pass Props
+                        If we don't have props, we can simply use component attribute as in case of Signup and Login.
+                        Now {...props} is nothing but the default props like history and location is passed to components. This is optional.
+                    */}
+                    <Switch>   {/* Switch is used to make sure that only 1 route matches and is picked, otherwise there can be multiple matches */}
+                        <Route exact path="/" render={(props) => <Home {...props} posts={posts}/>}/>
+                        <Route path="/login" component={Login}/>
+                        <Route path="/signup" component={SignUp}/>
+                        <Route component={Page404}/>
+                    </Switch>
                 </div>
             </Router>
+
         );
     }
 
