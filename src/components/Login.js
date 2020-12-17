@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {login} from '../actions/auth';
+import {clearAuthState, login} from '../actions/auth';
+import {Redirect} from "react-router";
 
 
 class Login extends Component {
@@ -13,6 +14,12 @@ class Login extends Component {
             password: ''
         };
     }
+
+    componentWillUnmount() {
+        /* Clear any error message after the Component is Unmounted */
+        this.props.dispatch(clearAuthState());
+    }
+
 
     handleEmailChange = (e) => {
         this.setState({
@@ -37,7 +44,14 @@ class Login extends Component {
 
 
     render() {
-        const {error, inProgress} = this.props.auth;
+        const {error, inProgress, isLoggedIn} = this.props.auth;
+
+        /* Check if user is already logged-in, if yes then redirect it to homepage, we don't need to show login page */
+        if (isLoggedIn) {
+            return (
+                <Redirect to="/" />
+            );
+        }
 
         return (
             <form className="login-form">

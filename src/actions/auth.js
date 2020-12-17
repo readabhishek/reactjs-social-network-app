@@ -1,4 +1,4 @@
-import {LOGIN_FAIL, LOGIN_START, LOGIN_SUCCESS, AUTHENTICATE_USER, LOG_OUT,} from "./actionTypes";
+import {LOGIN_FAIL, LOGIN_START, LOGIN_SUCCESS, AUTHENTICATE_USER, LOG_OUT, CLEAR_AUTH_STATE,} from "./actionTypes";
 import {APIUrls} from '../helpers/urls';
 import {getFormBody} from '../helpers/utils';
 
@@ -25,14 +25,20 @@ export function loginFailed(errorMessage) {
 export function authenticateUser(user) {
     return {
         type: AUTHENTICATE_USER,
-        user,
+        user
     };
 }
 
 export function logoutUser() {
     return {
-        type: LOG_OUT,
+        type: LOG_OUT
     };
+}
+
+export function clearAuthState() {
+    return {
+        type: CLEAR_AUTH_STATE
+    }
 }
 
 
@@ -56,6 +62,7 @@ export function login(email, password) {
                 console.log('Data: ', data);
                 if(data.success) {
                     // dispatch action to save user
+                    localStorage.setItem('token', data.data.token);
                     dispatch(loginSuccess(data.data.user))
                     return;
                 }

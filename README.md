@@ -10,7 +10,8 @@
 
 1) react-router-dom
 2) react-router
-2) prop-types
+3) prop-types
+4) jwt-decode
 
 # Getting Started with Create React App
 

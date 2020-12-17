@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 
 import { logoutUser } from '../actions/auth';
 
+
+
 class Navbar extends React.Component {
+
+    /* Log out feature handled here. The token is removed from localStorage and we update store to refresh the UI */
     logOut = () => {
         localStorage.removeItem('token');
         this.props.dispatch(logoutUser());

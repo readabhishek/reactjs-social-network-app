@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 
+import jwt_decode from "jwt-decode";
+
 import {fetchPosts} from '../actions/posts'
 import NavBar from "./NavBar";
 import Home from "./Home";
@@ -10,6 +12,7 @@ import Page404 from "./Page404";
 import Login from './Login';
 import SignUp from './SignUp';
 import '../index.css';
+import {authenticateUser} from "../actions/auth";
 
 /* Creating some dummy components */
 /*const SignUp = () => {
@@ -25,6 +28,24 @@ class App extends React.Component {
 
     componentDidMount() {
         this.props.dispatch(fetchPosts());  /* Note: Call the fetchPosts() function, don't just pass the reference */
+
+
+        /* We are getting the token from localStorage and if token exists (not during first time page load), we'll set it in Store.
+        *  This is done because we don't want the user to logged-off after browser refresh. The token/user will be retrieved since
+        *  componentDidMount will be called after each refresh/Component load.
+        * Note: We are storing the token in the action - auth once the login is successful and API returns the token
+        * */
+        const token = localStorage.getItem('token');
+        if (token) {
+            const user = jwt_decode(token);
+            console.log(user);
+            /*this.props.dispatch(authenticateUser(user));*/   // Can pass complete user object too, or pass just few details as below
+            this.props.dispatch(authenticateUser({
+                name: user.name,
+                _id: user._id,
+                email: user.email
+            }));
+        }
     }
 
 

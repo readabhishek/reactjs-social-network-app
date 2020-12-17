@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {signUp} from "../actions/signUp";
+import {clearAuthState} from "../actions/auth";
+import {Redirect} from "react-router";
 
 class SignUp extends Component {
     constructor(props) {
@@ -15,6 +17,10 @@ class SignUp extends Component {
         };
     }
 
+    componentWillUnmount() {
+        /* Clear any error message after the Component is Unmounted */
+        this.props.dispatch(clearAuthState());
+    }
 
     handleEmailChange = (e) => {
         this.setState({
@@ -74,8 +80,16 @@ class SignUp extends Component {
 
     render() {
 
-        const {error, inProgress} = this.props.auth;
+        const {error, inProgress, isLoggedIn} = this.props.auth;
         const {validationError, validationMsg} = this.state;
+
+        /* Check if user is already logged-in, if yes then redirect it to homepage, we don't need to show login page */
+        if (isLoggedIn) {
+            return (
+                <Redirect to="/" />
+            );
+        }
+
         return (
             <form className="login-form">
                 <span className="login-signup-header">Sign Up</span>

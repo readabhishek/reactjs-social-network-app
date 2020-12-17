@@ -2,6 +2,7 @@
 import {SIGN_UP_START, SIGN_UP_SUCCESS, SIGN_UP_FAIL} from "./actionTypes";
 import {APIUrls} from '../helpers/urls';
 import {getFormBody} from '../helpers/utils';
+import {login} from "./auth";
 
 export function registerUser() {
     return {
@@ -46,7 +47,8 @@ export function signUp(email, name, password, confirm_password) {
                     console.log('Data: ', data);
                     if(data.success) {
                         // dispatch action to save user
-                        dispatch(SignUpSuccess(data.data.user))
+                        dispatch(SignUpSuccess(data.data.user));
+                        dispatch(login(email, password));  // Login the user automatically just after Sign Up
                         return;
                     }
                     dispatch(SignUpFailed(data.message));
