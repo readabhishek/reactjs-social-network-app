@@ -1,3 +1,17 @@
+# About Project
+
+### The Project uses the following concepts:
+
+1) <b> PropTypes </b> - This allows to check Props are passed with a specified data types and if they are mandatory or not?
+2) <b> Router and Links </b> - How to create Links and Child Routes
+
+
+### Some new Packages used:
+
+1) react-router-dom
+2) react-router
+2) prop-types
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
