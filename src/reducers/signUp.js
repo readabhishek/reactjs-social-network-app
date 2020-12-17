@@ -1,36 +1,32 @@
-import {LOGIN_FAIL, LOGIN_START, LOGIN_SUCCESS} from "../actions/actionTypes";
+import {SIGN_UP_START, SIGN_UP_SUCCESS, SIGN_UP_FAIL} from "../actions/actionTypes";
 
 
 const initialState = {
     user: {},
     error: null,
-    isLoggedIn: false,
     inProgress: false
 }
 
 
-export default function auth(state=initialState, action) {
+export default function signUp(state=initialState, action) {
     switch (action.type) {
-        case LOGIN_START:
+        case SIGN_UP_START:
             return {
                 ...state,
                 inProgress: true
             };
 
-        case LOGIN_SUCCESS:
+        case SIGN_UP_SUCCESS:
             return {
                 ...state,
                 user: action.user,
-                isLoggedIn: true,
-                inProgress: false,
                 error: null
             };
 
-        case LOGIN_FAIL:
+        case SIGN_UP_FAIL:
             return {
                 ...state,
                 inProgress: false,
-                isLoggedIn: false,
                 error: action.error
             };
 

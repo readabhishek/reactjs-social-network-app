@@ -8,13 +8,13 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import Page404 from "./Page404";
 import Login from './Login';
-
+import SignUp from './SignUp';
 import '../index.css';
 
 /* Creating some dummy components */
-const SignUp = () => {
+/*const SignUp = () => {
     return (<div>SignUp</div>);
-}
+}*/
 
 
 class App extends React.Component {

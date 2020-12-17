@@ -1,4 +1,4 @@
-import {LOGIN_FAIL, LOGIN_START, LOGIN_SUCCESS} from "./actionTypes";
+import {LOGIN_FAIL, LOGIN_START, LOGIN_SUCCESS, AUTHENTICATE_USER, LOG_OUT,} from "./actionTypes";
 import {APIUrls} from '../helpers/urls';
 import {getFormBody} from '../helpers/utils';
 
@@ -22,9 +22,24 @@ export function loginFailed(errorMessage) {
     };
 }
 
+export function authenticateUser(user) {
+    return {
+        type: AUTHENTICATE_USER,
+        user,
+    };
+}
+
+export function logoutUser() {
+    return {
+        type: LOG_OUT,
+    };
+}
+
 
 export function login(email, password) {
-    return (dispatch) => {
+    return (
+
+        (dispatch) => {
 
         dispatch(startLogin());  /* Note: here we are dispatching 2 actions. startLogin first and then making the API call for Login action */
 
@@ -46,5 +61,7 @@ export function login(email, password) {
                 }
                 dispatch(loginFailed(data.message));
             })
-    };
+    }
+
+    );
 }
